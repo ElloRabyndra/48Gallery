@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+
+body {
+  background-color: rgb(176, 176, 176);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2em;
+}
+
+.container {
+  background-color: rgb(236, 236, 236);
+  width: 600px;
+  margin: auto;
+  border-radius: 20px;
+}
+
+.container .title {
+  font-size: 43px;
+  text-align: center;
+  color: rgb(96, 96, 96);
+  text-shadow: 0px 1px 3px rgba(79, 79, 79, 0.5);
+  font-weight: bold;
+  padding: 0.5em;
+}
+
+.container .gallery {
+  padding: 0 0 3em;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.container .gallery .member {
+  width: 120px;
+  height: 120px;
+  border: 3px solid rgb(96, 96, 96);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.container .gallery .member a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  background-color: rgba(105, 105, 105, 0.5);
+  color: white;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.521);
+  opacity: 0;
+}
+
+.container .gallery .member a:hover {
+  animation: spin .4s both;
+
+}
+
+.container .gallery .member:nth-child(1) {
+  background-image: url(material/gita\ kecil.jpg);
+}
+
+.container .gallery .member:nth-child(3) {
+  background-image: url(material/freya\ kecil.jpg);
+}
+
+.container .gallery .member:nth-child(5) {
+  background-image: url(material/ella\ kecil.jpg);
+}
+
+.container .gallery .member:nth-child(7) {
+  background-image: url(material/indah\ kecil.jpg);
+}
+
+.overlay {
+  position: absolute;
+  text-align: center;
+  display: none;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 2em 0 8em;
+}
+
+.overlay:target {
+  display: block;
+  transition: .4s;
+}
+
+.overlay:target img {
+  animation: fade .4s both;
+}
+
+
+
+.overlay .close {
+  display: block;
+  position: relative;
+  z-index: 999;
+  color: white;
+  width: 100px;
+  margin: 20px auto;
+  padding: 0.5em;
+  border-radius: 10px;
+  border: 1px solid white;
+  font-weight: bold;
+  background-color: rgb(62, 62, 62);
+}
+
+.overlay img {
+  position: relative;
+  z-index: 999;
+  max-height: 100%;
+  max-width: 80%;
+}
+
+@keyframes spin {
+  0% {opacity: 0;}
+  100% {opacity: 1; transform: rotate(360deg);}
+  }
+
+  @keyframes fade {
+    0%{transform: scale(0); opacity: 0;}
+    100% {transform: scale(1); opacity: 1;}
+  }
