@@ -14,8 +14,8 @@ body {
   color: white;
 }
 
+/* Gallery */
 .gallery-section {
-  /* height: 100vh; */
   height: 700px;
   display: flex;
   justify-content: center;
@@ -28,6 +28,7 @@ body {
   width: 600px;
   margin: auto;
   border-radius: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .container .title {
@@ -56,6 +57,7 @@ body {
 }
 
 .container .gallery .member a {
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,121 +80,135 @@ body {
   background-image: url(material/gita\ kecil.jpg);
 }
 
-.container .gallery .member:nth-child(3) {
+.container .gallery .member:nth-child(2) {
   background-image: url(material/freya\ kecil.jpg);
 }
 
-.container .gallery .member:nth-child(5) {
+.container .gallery .member:nth-child(3) {
   background-image: url(material/ella\ kecil.jpg);
 }
 
-.container .gallery .member:nth-child(7) {
+.container .gallery .member:nth-child(4) {
   background-image: url(material/indah\ kecil.jpg);
 }
 
-.overlay {
+.gallery-overlay {
   position: fixed;
   z-index: 999;
-  text-align: center;
-  display: none;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 4em 0 8em;
-}
-
-.overlay:target {
-  display: block;
-  display: flex;
+  display: none;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transition: .4s;
-}
-
-.overlay:target img {
-  animation: fade .4s both;
-}
-
-.overlay .member-wrapper {
-  display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  /* height: 800px; */
-  width: 500px;
+  gap: 1em;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-.overlay .close-wrapper {
-  border: 1px solid black;
-}
-
-.overlay .close {
-  display: block;
-  position: relative;
-  z-index: 1;
-  color: white;
-  width: 100px;
-  margin: 20px auto;
-  padding: 0.5em;
+.close {
+  cursor: pointer;
+  padding: 8px 15px;
+  background-color: rgb(61, 61, 61);
   border-radius: 10px;
-  border: 1px solid white;
-  font-weight: bold;
-  background-color: rgb(62, 62, 62);
+  font-size: 1.2em;
+  font-weight: bold ;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 1));
 }
 
-.member-wrapper img:nth-child(2) {
-  grid-area: member;
-  position: relative;
-  z-index: 1;
-  max-height: 100%;
-  max-width: 80%;
+.member-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-
-.overlay .next-wrapper, .overlay .prev-wrapper {
-  position: relative;
-  z-index: 1;
-  display: block;
-  width: 100px;
-  height: 80px;
+.member-container figure {
+  width: 400px;
+  height: 550px;
+  background-color: gray;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.overlay .prev-wrapper img, .overlay .next-wrapper img {
+.member-container figure img {
   width: 100%;
   height: 100%;
-  filter: drop-shadow(0 0 2px white);
 }
 
+
+.member-container .prev, .member-container .next {
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+}
+
+.member-container .next img, .member-container .prev img {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 1));
+}
+
+/* Gacha */
 .gacha-section {
-  /* height: 100vh; */
   height: 700px;
-  padding: 2em;
   display: flex;
   justify-content: center;
+  align-items: center;
+  padding: 2em;
 }
 
 .gacha-container {
   background-color: gray;
-  width: 600px;
-  height: 500px;
+  background-color: rgb(236, 236, 236);
+  width: 500px;
+  padding: 2em;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 2.5em;
   border-radius: 20px;
-  
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
 }
 
-figure {
-  background-color: red;
+.gacha-container figure {
+  cursor: pointer;
   width: 300px;
   height: 400px;
 }
 
-img {
+.gacha-container img {
   width: 100%;
+  border: 4px solid rgb(96, 96, 96);
+  border-radius: 10px;
+}
+
+.member-name {
+  background-color: rgb(254, 254, 252);
+  color: rgb(96, 96, 96);
+  font-size: 3em;
+  padding: 5px 30px;
+  border-radius: 20px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.454);
+}
+
+.gacha-button {
+  cursor: pointer;
+  padding: 3px 30px;
+  border: 0;
+  outline: 0;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: rgb(96, 96, 96);
+  background-color: rgb(254, 254, 252);
+  border-radius: 20px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.454);
+  transition: .1s;
+}
+
+.gacha-button:active {
+  transform: scale(1.05);
 }
 
 
@@ -207,16 +223,24 @@ img {
   }
 
   @media (max-width:576px) {
-    .overlay {
-      padding: 12em 0;
+    /* Gallery */
+    .close {
+      font-size: 0.9em;
     }
 
-    .member-wrapper img:nth-child(2) {
-      max-width: 50%;
+    .member-container figure {
+      width: 240px;
+      height: 340px;
     }
 
-    .overlay .next-wrapper, .overlay .prev-wrapper {
-      width: 60px;
-      height: 55px;
+    .member-container .prev, .member-container .next {
+      width: 50px;
+      height: 50px;
+    }
+
+    /* Gacha */
+    .gacha-container figure {
+      width: 240px;
+      height: 340px;
     }
   }
