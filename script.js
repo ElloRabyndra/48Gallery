@@ -61,7 +61,6 @@ gachaButton.addEventListener("click", function() {
     let memb = Math.floor(Math.random()*oshi.length);
     image.setAttribute("src", "material/gacha oshi/" + oshi[memb] + ".jpeg");
     memberName.innerHTML = oshi[memb];
-    // greesel=11
   },1200)
 })
 
