@@ -115,6 +115,7 @@ body {
   font-size: 1.2em;
   font-weight: bold ;
   filter: drop-shadow(0 0 2px rgba(255, 255, 255, 1));
+  animation: fade .3s both;
 }
 
 .member-container {
@@ -129,6 +130,7 @@ body {
   background-color: gray;
   border-radius: 10px;
   overflow: hidden;
+  animation: fade .3s both;
 }
 
 .member-container figure img {
@@ -141,6 +143,7 @@ body {
   cursor: pointer;
   width: 100px;
   height: 100px;
+  animation: fade .3s both;
 }
 
 .member-container .next img, .member-container .prev img {

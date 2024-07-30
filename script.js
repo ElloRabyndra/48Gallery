@@ -36,8 +36,6 @@ nextPrevButton[0].addEventListener("click", function() {
   console.log(x);
 });
 
-
-
 // Gacha Section
 const gachaButton = document.querySelector(".gacha-button");
 const oshi = ["Zee", "Raisha", "Oniel", "Olla", "Muthe", "Marsha", "Lyn", "Lulu", "Lia", "Jessi", "Indira", "Greesel", "Gracie", "Gracia", "Flora", "Fiony", "Feni", "Eli", "Christy", "Callie", "Kathrina", "Amanda", "Adel", "Gita", "Freya", "Ella", "Indah"];
@@ -63,4 +61,3 @@ gachaButton.addEventListener("click", function() {
     memberName.innerHTML = oshi[memb];
   },1200)
 })
-
