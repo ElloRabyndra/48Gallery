@@ -4,47 +4,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JKT48 Gallery</title>
-    <link rel="stylesheet" href="styleGallery.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
-    <div class="gallery-overlay">
-      <div class="close">X Close</div>
-      <div class="member-container">
-        <div class="prev button">
-          <img src="material/previous.png" alt="" />
+  <body class="bg-gray-900 text-white font-[Poppins]">
+    <div class="fixed inset-0 hidden flex-col items-center justify-center gap-4 bg-black bg-opacity-50 z-50 gallery-overlay">
+      <div class="cursor-pointer px-4 py-2 bg-gray-700 rounded-lg text-lg font-bold drop-shadow-md close border-4 border-pink-300">X Close</div>
+      <div class="flex justify-center items-center member-container">
+        <div class="cursor-pointer w-24 h-24 transition-transform duration-300 prev button">
+          <img src="material/previous.png" alt="" class="w-full h-full"/>
         </div>
-        <figure><img src="material/gita.jpg" alt="" /></figure>
-        <div class="next button"><img src="material/next.png" alt="" /></div>
+        <figure class="w-96 h-[550px] bg-gray-700 border-4 border-pink-300 rounded-lg overflow-hidden">
+          <img src="material/gita.jpg" alt="" class="w-full h-full"/>
+        </figure>
+        <div class="cursor-pointer w-24 h-24 transition-transform duration-300 next button">
+          <img src="material/next.png" alt="" class="w-full h-full"/>
+        </div>
       </div>
     </div>
 
-    <section class="gallery-section">
-      <div class="container">
-        <div class="title">48Gallery</div>
-        <div class="gallery">
-          <div class="member gita">
-            <a>Gita</a>
+    <section class="h-[700px] flex justify-center items-center p-8 gallery-section">
+      <div class="bg-gray-800 w-[600px] mx-auto rounded-2xl shadow-md p-6 container border-4 border-pink-300">
+        <div class="text-4xl text-center text-pink-300 font-bold mb-6 title">48Gallery</div>
+        <div class="flex justify-center flex-wrap gap-5 pb-12 gallery">
+          <div class="w-28 h-28 border-4 border-pink-300 rounded-full overflow-hidden bg-cover member gita" style="background-image: url('material/gita%20kecil.jpg');">
+            <a class="cursor-pointer flex justify-center items-center w-full h-full bg-pink-300 bg-opacity-50 text-white font-bold text-2xl opacity-0 hover:opacity-100 transition-all">Gita</a>
           </div>
-          <div class="member freya">
-            <a>Freya</a>
+          <div class="w-28 h-28 border-4 border-pink-300 rounded-full overflow-hidden bg-cover member freya" style="background-image: url('material/freya%20kecil.jpg');">
+            <a class="cursor-pointer flex justify-center items-center w-full h-full bg-pink-300 bg-opacity-50 text-white font-bold text-2xl opacity-0 hover:opacity-100 transition-all">Freya</a>
           </div>
-          <div class="member ella">
-            <a>Ella</a>
+          <div class="w-28 h-28 border-4 border-pink-300 rounded-full overflow-hidden bg-cover member ella" style="background-image: url('material/ella%20kecil.jpg');">
+            <a class="cursor-pointer flex justify-center items-center w-full h-full bg-pink-300 bg-opacity-50 text-white font-bold text-2xl opacity-0 hover:opacity-100 transition-all">Ella</a>
           </div>
-          <div class="member indah">
-            <a>Indah</a>
+          <div class="w-28 h-28 border-4 border-pink-300 rounded-full overflow-hidden bg-cover member indah" style="background-image: url('material/indah%20kecil.jpg');">
+            <a class="cursor-pointer flex justify-center items-center w-full h-full bg-pink-300 bg-opacity-50 text-white font-bold text-2xl opacity-0 hover:opacity-100 transition-all">Indah</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="gacha-section">
-      <div class="gacha-container">
-        <h1 class="member-name">???</h1>
-        <figure>
-          <img src="material/gachaOshi/Freya.jpeg" alt="" />
+    <section class="h-[700px] flex justify-center items-center p-8 gacha-section">
+      <div class="bg-gray-800 w-[500px] p-8 flex flex-col justify-center items-center gap-10 rounded-2xl shadow-md gacha-container border-4 border-pink-300">
+        <h1 class="bg-pink-300 text-white text-3xl px-8 py-2 rounded-2xl shadow-md member-name">???</h1>
+        <figure class="cursor-pointer w-72 h-[400px] border-4 border-pink-300 rounded-lg overflow-hidden">
+          <img src="material/gachaOshi/Freya.jpeg" alt="" class="w-full"/>
         </figure>
-        <button class="gacha-button">Click!</button>
+        <button class="cursor-pointer px-8 py-1 border-0 outline-0 text-3xl font-bold text-white hover:bg-pink-400 bg-pink-300 rounded-2xl shadow-md transition-transform active:scale-105 gacha-button">Click!</button>
       </div>
     </section>
     <script src="script.js"></script>
