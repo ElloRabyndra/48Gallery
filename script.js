@@ -3,91 +3,71 @@ const oshiGallery = ["gita", "freya", "ella", "indah"];
 const overlayMember = document.querySelector(".gallery-overlay");
 const memberButton = document.querySelectorAll(".member a");
 const closeButton = document.querySelector(".gallery-overlay .close");
-const nextPrevButton = document.querySelectorAll(
-  ".member-container .button img"
-);
+const nextPrevButton = document.querySelectorAll(".member-container .button img");
 const memberFrame = document.querySelector(".member-container figure img");
-let x;
+let x = 0;
 
-// member button function
-for (let i = 0; i < memberButton.length; i++) {
-  memberButton[i].addEventListener("click", function () {
-    memberFrame.setAttribute("src", "material/" + oshiGallery[i] + ".jpg");
-    overlayMember.style.display = "flex";
-    x = i;
-  });
+// Fungsi untuk memperbarui gambar berdasarkan indeks x
+function updateGallery(index) {
+  memberFrame.setAttribute("src", `material/${oshiGallery[index]}.jpg`);
 }
 
-// Close
-closeButton.addEventListener("click", function () {
-  x = 0;
+// view member
+memberButton.forEach((button, i) => {
+  button.addEventListener("click", () => {
+    x = i;
+    updateGallery(x);
+    overlayMember.style.display = "flex";
+  });
+});
+
+// Close button
+closeButton.addEventListener("click", () => {
   overlayMember.style.display = "none";
 });
 
-// Next
-nextPrevButton[1].addEventListener("click", function () {
-  if (x >= oshiGallery.length - 1) x = -1;
-  memberFrame.setAttribute("src", "material/" + oshiGallery[++x] + ".jpg");
-  console.log(x);
-});
-
-// Previous
-nextPrevButton[0].addEventListener("click", function () {
-  if (x - 1 < 0) x = oshiGallery.length;
-  memberFrame.setAttribute("src", "material/" + oshiGallery[--x] + ".jpg");
-  console.log(x);
+// Next & Previous Buttons
+nextPrevButton.forEach((button, i) => {
+  button.addEventListener("click", () => {
+    x = (x + (i === 1 ? 1 : -1) + oshiGallery.length) % oshiGallery.length;
+    updateGallery(x);
+  });
 });
 
 // Gacha Section
 const gachaButton = document.querySelector(".gacha-button");
 const oshi = [
-  "Zee",
-  "Raisha",
-  "Oniel",
-  "Olla",
-  "Muthe",
-  "Marsha",
-  "Lyn",
-  "Lulu",
-  "Lia",
-  "Jessi",
-  "Indira",
-  "Greesel",
-  "Gracie",
-  "Gracia",
-  "Flora",
-  "Fiony",
-  "Feni",
-  "Eli",
-  "Christy",
-  "Callie",
-  "Kathrina",
-  "Amanda",
-  "Adel",
-  "Gita",
-  "Freya",
-  "Ella",
-  "Indah",
+  "Zee", "Raisha", "Oniel", "Olla", "Muthe", "Marsha", "Lyn", "Lulu", "Lia", "Jessi",
+  "Indira", "Greesel", "Gracie", "Gracia", "Flora", "Fiony", "Feni", "Eli", "Christy",
+  "Callie", "Kathrina", "Amanda", "Adel", "Gita", "Freya", "Ella", "Indah"
 ];
 const image = document.querySelector(".gacha-container img");
 const memberName = document.querySelector(".member-name");
-let i = 0;
 
-gachaButton.addEventListener("click", function () {
-  const startTime = new Date().getTime();
-  setInterval(function () {
-    if (new Date().getTime() - startTime > 1200) {
-      clearInterval;
-      return;
-    }
+function startGacha() {
+  let rollCount = 0;
+  const maxRolls = 15; 
+  const intervalSpeed = 80; 
+  let intervalID = setInterval(() => {
+    const randomIndex = Math.floor(Math.random() * oshi.length);
     memberName.innerHTML = "???";
-    image.setAttribute("src", "material/gachaOshi/" + oshi[i++] + ".jpeg");
-    if (i >= oshi.length) i = 0;
-  }, 80);
+    image.setAttribute("src", `material/gachaOshi/${oshi[randomIndex]}.jpeg`);
+    rollCount++;
+    if (rollCount >= maxRolls) {
+      clearInterval(intervalID);
+      selectFinalResult();
+    }
+  }, intervalSpeed);
+}
 
-  setTimeout(function () {
-    let memb = Math.floor(Math.random() * oshi.length);
-    image.setAttribute("src", "material/gachaOshi/" + oshi[memb] + ".jpeg");
-    memberName.innerHTML = oshi[memb];
-  }, 1200);
+function selectFinalResult() {
+  let finalIndex = Math.floor(Math.random() * oshi.length);
+  setTimeout(() => {
+    image.setAttribute("src", `material/gachaOshi/${oshi[finalIndex]}.jpeg`);
+    memberName.innerHTML = oshi[finalIndex];
+  }, 300);
+}
+
+gachaButton.addEventListener("click", () => {
+  startGacha();
 });
