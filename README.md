@@ -1,3 +1,3 @@
-# Website Gacha OSHI JKT48
-## Akses Melalui: https://ellorabyndra.github.io/48Gallery/
-Member JKT48 di website ini belum di-update (Until Gen 10)
+# JKT48 OSHI Gacha Website
+## Access Via: https://ellorabyndra.github.io/48Gallery/
+JKT48 members on this website have not been updated (Until Gen 10)
